@@ -12,7 +12,7 @@ comment
 
 CREATE TABLE IF NOT EXISTS continents(
 continent_id INT,
-name VARCHAR(255) NOT NULL AUTO_INCREMENT,
+NAME VARCHAR(255) NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (continent_id)
 );
 
@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS continents;
 
 CREATE TABLE IF NOT EXISTS continents(
 continent_id INT,
-name VARCHAR(255)
+NAME VARCHAR(255)
 );
 alter table continents Add primary key(continent_id);
 alter table continents drop primary key;
@@ -33,13 +33,11 @@ name VARCHAR(50) NOT NULL ,
 PRIMARY KEY (language_id)
 );
 
-DROP TABLE IF EXISTS languages;
-
-CREATE TABLE IF NOT EXISTS languages(
-language_id INT,
-name VARCHAR(50)
+CREate table if not exists regions(
+regions_id int auto_increment,
+name varchar(100) not null,
+continent_id int,
+Primary key(region_id),
+constraint fk_region_continents Foreign key(continent_id) References continents(continent_id)
 );
-alter table languages Add primary key(language_id);
-alter table languages drop primary key;
-alter table languages modify column continent_id int auto_increment primary key;
-alter table languages modify column name varchar(50) not null;
+
