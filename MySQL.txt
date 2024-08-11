@@ -1,0 +1,115 @@
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,    
+    name VARCHAR(100) NOT NULL,
+    position VARCHAR(50),
+    salary DECIMAL(10, 2),
+    hire_date DATE
+);
+Чтобы создать новую таблицу, используйте команду CREATE TABLE
+To create a new table, use the command CREATE TABLE.
+
+
+DESCRIBE employees;
+Чтобы увидеть структуру таблицы, используйте команду DESCRIBE или SHOW COLUMNS.
+To see the table structure, use the DESCRIBE or command SHOW COLUMNS.
+
+
+INSERT INTO employees (name, position, salary, hire_date)
+VALUES ('John Doe', 'Manager', 75000.00, '2022-01-15');
+Добавление данных в таблицу.
+Для вставки данных в таблицу используется команда INSERT INTO.
+Adding data to the table
+To insert data into a table, use the command INSERT INTO.
+
+
+
+UPDATE employees
+SET salary = 80000.00
+WHERE name = 'John Doe';
+ Изменение данных в таблице
+Чтобы изменить существующие данные, используйте команду UPDATE.
+Этот запрос обновляет зарплату сотрудника с именем John Doe.
+Changing data in the table
+To change existing data, use the command UPDATE.
+This query updates the salary of an employee named John Doe.
+
+
+
+
+DELETE FROM employees
+WHERE id = 1;
+Удаление данных из таблицы
+Удалить данные из таблицы можно с помощью команды DELETE.
+Deleting data from a table
+You can delete data from a table using the command DELETE.
+
+
+
+Modifying the table structure
+To change the table structure, use the command ALTER TABLE.
+ Модификация структуры таблицы
+Для изменения структуры таблицы используется команда ALTER TABLE.
+ALTER TABLE employees
+ADD COLUMN email VARCHAR(100);
+Добавление столбца.
+Adding a column
+
+
+ALTER TABLE employees
+MODIFY COLUMN salary DECIMAL(12, 2);
+Изменение типа данных столбца.
+Changing the data type of a column.
+
+
+ALTER TABLE employees
+CHANGE COLUMN position job_title VARCHAR(50);
+Переименование столбца.
+Renaming a column.
+
+ALTER TABLE employees
+DROP COLUMN email;
+Удаление столбца.
+Delete column.
+
+DROP TABLE employees;
+Для удаления таблицы используется команда DROP TABLE.
+To delete a table, use the command DROP TABLE.
+
+
+
+CREATE TABLE employees_backup AS
+SELECT * FROM employees;
+Копирование таблицы
+Чтобы создать копию таблицы, можно использовать команду CREATE TABLE ... SELECT.
+Этот запрос создает копию таблицы employees с именем employees_backup.
+Copying a table
+To create a copy of a table, you can use the command CREATE TABLE ... SELECT.
+This query creates a copy of the table employeesnamed employees_backup.
+
+
+TRUNCATE TABLE employees;
+Очистка таблицы
+Чтобы удалить все данные из таблицы, но оставить саму таблицу, используйте команду TRUNCATE TABLE.
+Clearing the table
+To delete all data from a table but leave the table itself, use the command TRUNCATE TABLE.
+
+
+Indexes and keys
+Индексы и ключи
+CREATE INDEX idx_position ON employees(position);
+Создание индекса
+Creating an index
+
+ALTER TABLE employees
+ADD CONSTRAINT unique_email UNIQUE (email);
+Создание уникального ключа
+Creating a unique key
+
+
+
+
+
+
+
+
+
