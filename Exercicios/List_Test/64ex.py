@@ -1,36 +1,28 @@
-# Create a program that reads the name and
-# average of a student, calculating their
-# situation, all within a dictionary.
-# At the end, show all the content of the
-# dictionary.
 #
-# Situation:
-# Average >= 9.5 – Approved
-# Average < 9.5 - Failed
+# Create a program that sorts the order of
+# played in a game by “throwing a die at the
+# air". Each player will have a number
+# random associated within a
+# dictionary. At the end, order the ranking
+# to see the play order.
 
 
-students = {} # Dictionary to store student information
-while True:  # Get
-    name = input("Enter the name of the student (or 'done' to finish): ")
-    # Break loop if user enters 'done'
-    if name.lower() == "done":
-        break
-    # Get average of the student
-    average = float(input("Enter the average of the student: "))
-    # Calculate the situation based on the average
-    if average >= 9.5:
-        situation = "Approved"
-    else: # If average is less than 9.5, set the situation as 'Failed'
-        situation = "Failed"
+import random
 
-    students[name] = {"average": average, "situation": situation} # Add student information to the dictionary
-     # Print the student information
-    print(f"{name} - Average: {average:.1f}, Situation: {situation}")
+# Create a dictionary to store players and their scores
+players = {
+    "Player 1": random.randint(1, 6),
+    "Player 2": random.randint(1, 6),
+    "Player 3": random.randint(1, 6),
+    "Player 4": random.randint(1, 6),
+}
 
+# Sort the dictionary by values (scores) in descending order
+sorted_players = dict(sorted(players.items(), key=lambda item: item[1], reverse=True))
 
-# Print all students' information in the dictionary'
-print("\nAll students' information:")
-for name, data in students.items():  # Loop through the dictionary items (students)
-    print(f"{name}: Average - {data['average']:.1f}, Situation - {data['situation']}") # Print student's information'
+# Print the sorted ranking
+print("Sorted Ranking:")
+for rank, (player, score) in enumerate(sorted_players.items(), start=1):
+    print(f"{rank}. {player}: {score}")
 
 
